@@ -29,6 +29,7 @@ Steve 0.11 42
 ```
 Example command:
 ```bash
+g++ -std=c++17 -o main main.cpp 
 ./main test.data b
 ```
 Expected output:
