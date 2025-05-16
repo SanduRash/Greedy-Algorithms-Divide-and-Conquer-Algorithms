@@ -1,0 +1,15 @@
+Sandu Galbokka Hewa
+April 14, 2025
+Linux
+No special steps needed to compile this code
+No bugs: but I allocated my array for 100000 items, when I try to go higher, it gives me segmentation error.
+
+First to read and store data I created a class called info() which store client's name, and both scores. After that I breaked the problem into two part which are for considering only one score and both scores.
+
+When only we need to consider one score, I used merge sort(from project 1) to sort the array with all clients' details by that relevant score. Then I used devide and conquer algorithms to find closest match in each scores.
+
+	When deviding, I focused to divide into halves with atleast 1 and atmost 2 clients. After calculating how many clients in one half, I calculate minimum difference in each half. If there are two clients, I got the difference of relevant scores, but if there is only one client, I made their minimum difference to big positive number(I wanted to make it into infinity, so I googled how to do that. Then I found INT_MAX. So I used that as a big positive number in my code). After comparing which one is minimum, I updated my minDiff(which is minimum in whole data). Also, I checked the difference between joint of left and right half. If min in joint is less than minDiff, I set min in Joint as minDIff.
+
+When we need to consider both scores (sortType == "b"), I added an extra step where I sorted by score1 first, then created a strip array (arrStrip[]) that contained clients whose score1 fell within a specific range (the middle point of the sorted array +/- the minimum difference). This helped narrow down the potential pairs that could be closest.
+
+Then, I sorted arrStrip[] by score2 and only checked the neighboring points in the array for possible closer pairs. This way, I reduced the number of comparisons to just the necessary ones.
